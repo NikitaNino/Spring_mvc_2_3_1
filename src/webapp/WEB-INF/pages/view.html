@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+</head>
+<body>
+    <div th:each="user : ${user}">
+
+  User ID: <p th:text="${user.getId()}">VALUE</p>
+  User Name: <p th:text="${user.getName}">VALUE</p>
+  User SurName: <p th:text="${user.getSurname()}">VALUE</p>
+  User Age: <p th:text="${user.getAge()}">VALUE</p>
+    </div>
+    <div>
+        <form th:method="DELETE" th:action="@{/{id}(id=${user.getId()})}" th:object="${user}">
+            <p>
+                <input class="troll btn-danger" type="submit" value="Delete User"/>
+            </p>
+        </form>
+    <div>
+        <a class="btn btn-dark" th:href="@{/}">back</a>
+    </div>
+</div>
+</body>
+</html>

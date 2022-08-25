@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title> All Users </title>
+</head>
+<body>
+<div>
+    <div>
+        <table th:border="1">
+            <thead>
+            <tr>
+                <td>Id</td>
+                <td>Name</td>
+                <td>SurName</td>
+                <td>Age</td>
+                <td>Update User</td>
+                <td>Delete User</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user: ${users}">
+                <td><a th:href="@{/{id}(id=${user.getId()})}" th:text="${user.getId()}"></a></td>
+                <td th:text="${user.getName()}"></td>
+                <td th:text="${user.getSurname()}"></td>
+                <td th:text="${user.getAge()}"></td>
+                <td><a th:href="@{/{id}/update(id=${user.getId()})}">Edit</a></td>
+                <td>
+                    <div>
+                        <form th:method="DELETE" th:action="@{/{id}(id=${user.getId()})}">
+                            <p>
+                                <input class="btn-danger troll" type="submit" value="Delete"/>
+                            </p>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <a th:href="create" class="btn btn-success">Create</a>
+    </div>
+</div>
+</body>
+</html>
