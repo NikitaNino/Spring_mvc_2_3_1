@@ -21,7 +21,7 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
     // Добавление конфигурации, в которой инициализируем ViewResolver, для корректного отображения jsp.
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class<?>[] {WebConfig.class};
+        return new Class<?>[]{WebConfig.class};
     }
 
 
@@ -54,6 +54,6 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
         CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
         characterEncodingFilter.setEncoding("UTF-8");
         characterEncodingFilter.setForceEncoding(true);
-        return new Filter[] {characterEncodingFilter};
+        return new Filter[]{characterEncodingFilter};
     }
 }
